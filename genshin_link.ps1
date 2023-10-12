@@ -114,4 +114,4 @@ $wishHistoryUrl = $link
 
 Write-Host $wishHistoryUrl
 Set-Clipboard -Value $wishHistoryUrl
-Write-Host "Link copied to clipboard, paste it back to paimon.moe" -ForegroundColor Green
+Write-Host "Link copied to clipboard, paste it back to NousIndex" -ForegroundColor Green
