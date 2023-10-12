@@ -114,4 +114,4 @@ $wishHistoryUrl = $link
 
 #Write-Host $wishHistoryUrl
 Set-Clipboard -Value $wishHistoryUrl
-Write-Host "Cannot find the wish history url! Make sure to open the wish history first!" -ForegroundColor Green
+Write-Host "Link copied to clipboard, paste it in NousIndex" -ForegroundColor Green
