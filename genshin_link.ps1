@@ -46,9 +46,23 @@ if ($matches.Length -eq 0) {
 }
 
 $gamedir = $matches[1]
-$cachefile = "$gamedir/webCaches/Cache/Cache_Data/data_2"
+$webCachefolder = "$gamedir/webCaches/"
 $tmpfile = "$env:TEMP/ch_data_2"
 
+
+# Get a list of folders in the specified directory
+$folders = Get-ChildItem -Path $webCachefolder -Directory
+
+# Sort the folders by LastWriteTime in descending order and select the first one
+$mostRecentFolder = $folders | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+
+# Check if there is at least one folder in the directory
+if ($mostRecentFolder) {
+    $cachefile = "$webCachefolder/$mostRecentFolder/Cache/Cache_Data/data_2"
+} else {
+    Write-Host "No folders found in the specified directory." -ForegroundColor Red
+    return
+}
 Copy-Item $cachefile -Destination $tmpfile
 
 function testUrl($url) {
