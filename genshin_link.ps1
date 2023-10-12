@@ -112,5 +112,5 @@ if (-Not $linkFound) {
 
 $wishHistoryUrl = $link
 
-Write-Host $wishHistoryUrl
-Set-Clipboard -Value $wishHistoryUrl
+#Write-Host $wishHistoryUrl
+Set-Clipboard -Value $wishHistoryUrlWrite-Host "Cannot find the wish history url! Make sure to open the wish history first!" -ForegroundColor Green
