@@ -114,4 +114,3 @@ $wishHistoryUrl = $link
 
 Write-Host $wishHistoryUrl
 Set-Clipboard -Value $wishHistoryUrl
-Write-Host "Link copied to clipboard, paste it back to NousIndex" -ForegroundColor Green
