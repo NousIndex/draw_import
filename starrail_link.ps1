@@ -67,16 +67,40 @@ else {
 }
 Copy-Item $cachefile -Destination $tmpfile
 
+function testUrl($url) {
+  $ProgressPreference = 'SilentlyContinue'
+  $uri = [System.UriBuilder]::New($url)
+  $uri.Path = "common/gacha_record/api/getGachaLog"
+  $uri.Host = $apiHost
+  $uri.Fragment = ""
+  $params = [System.Web.HttpUtility]::ParseQueryString($uri.Query)
+  $params.Set("lang", "en");
+  $params.Set("game_biz", "hkrpg_global")
+  $params.Set("gacha_type", 11);
+  $params.Set("size", "5");
+  $uri.Query = $params.ToString()
+  $apiUrl = $uri.Uri.AbsoluteUri
+
+  $response = Invoke-WebRequest -Uri $apiUrl -ContentType "application/json" -UseBasicParsing -TimeoutSec 10 | ConvertFrom-Json
+  $testResult = $response.retcode -eq 0
+  return $testResult
+}
+
 $content = Get-Content -Encoding UTF8 -Raw $tmpfile
-$found = $content -split "1/0/"
+$splitted = $content -split "1/0/"
+$found = $splitted -match "e20211215gacha-v2"
 $link = $false
 $linkFound = $false
 for ($i = $found.Length - 1; $i -ge 0; $i -= 1) {
-  $t = $found[$i] -match "(https.+?&game_biz=)"
+  $t = $found[$i] -match "(https.+?game_biz=)"
   $link = $matches[0]
-  $linkFound = $true
-  break
-  Sleep 0.5
+  Write-Host "`rChecking Link $i" -NoNewline
+  $testResult = testUrl $link
+  if ($testResult -eq $true) {
+    $linkFound = $true
+    break
+  }
+  Sleep 1
 }
 
 Remove-Item $tmpfile
