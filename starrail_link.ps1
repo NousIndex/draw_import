@@ -1,6 +1,6 @@
 Add-Type -AssemblyName System.Web
 
-$logLocation = "%userprofile%\AppData\LocalLow\Cognosphere\Star Rail\output_log.txt";
+$logLocation = "%userprofile%\AppData\LocalLow\Cognosphere\Star Rail\Player.log";
 $logLocationChina = "%userprofile%\AppData\LocalLow\miHoYo\$([char]0x5d29)$([char]0x574f)$([char]0xff1a)$([char]0x661f)$([char]0x7a79)$([char]0x94c1)$([char]0x9053)\output_log.txt";
 
 $reg = $args[0]
@@ -48,7 +48,7 @@ if ($matches.Length -eq 0) {
 $gamedir = $matches[1]
 $desiredPath = $gamedir -replace "\\[^\\]+$"
 $desiredPath2 = [System.IO.Path]::GetDirectoryName($desiredPath)
-$webCachefolder = "$desiredPath2\"
+$webCachefolder = "$desiredPath2\StarRail_Data\webCaches\"
 $tmpfile = "$env:TEMP/ch_data_2"
 
 # Get a list of folders in the specified directory
