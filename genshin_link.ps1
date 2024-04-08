@@ -3,6 +3,8 @@ Add-Type -AssemblyName System.Web
 $logLocation = "%userprofile%\AppData\LocalLow\miHoYo\Genshin Impact\output_log.txt";
 $logLocationChina = "%userprofile%\AppData\LocalLow\miHoYo\$([char]0x539f)$([char]0x795e)\output_log.txt";
 
+Write-Host $logLocation -ForegroundColor Red
+
 $reg = $args[0]
 $apiHost = "hk4e-api-os.hoyoverse.com" 
 if ($reg -eq "china") {
