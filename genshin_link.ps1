@@ -3,8 +3,6 @@ Add-Type -AssemblyName System.Web
 $logLocation = "%userprofile%\AppData\LocalLow\miHoYo\Genshin Impact\output_log.txt";
 $logLocationChina = "%userprofile%\AppData\LocalLow\miHoYo\$([char]0x539f)$([char]0x795e)\output_log.txt";
 
-Write-Host $logLocation -ForegroundColor Red
-
 $reg = $args[0]
 $apiHost = "hk4e-api-os.hoyoverse.com" 
 if ($reg -eq "china") {
@@ -88,7 +86,7 @@ function testUrl($url) {
 
 $content = Get-Content -Encoding UTF8 -Raw $tmpfile
 $splitted = $content -split "1/0/"
-$found = $splitted -match "e20190909gacha-v2"
+$found = $splitted -match "e20190909gacha"
 $link = $false
 $linkFound = $false
 for ($i = $found.Length - 1; $i -ge 0; $i -= 1) {
