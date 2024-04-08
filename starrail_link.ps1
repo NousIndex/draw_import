@@ -88,7 +88,7 @@ function testUrl($url) {
 
 $content = Get-Content -Encoding UTF8 -Raw $tmpfile
 $splitted = $content -split "1/0/"
-$found = $splitted -match "e20211215gacha-v2"
+$found = $splitted -match "e20211215gacha-"
 $link = $false
 $linkFound = $false
 for ($i = $found.Length - 1; $i -ge 0; $i -= 1) {
