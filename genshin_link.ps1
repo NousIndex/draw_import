@@ -68,7 +68,7 @@ Copy-Item $cachefile -Destination $tmpfile
 function testUrl($url) {
   $ProgressPreference = 'SilentlyContinue'
   $uri = [System.UriBuilder]::New($url)
-  $uri.Path = "event/gacha_info/api/getGachaLog"
+  $uri.Path = "gacha_info/api/getGachaLog"
   $uri.Host = $apiHost
   $uri.Fragment = ""
   $params = [System.Web.HttpUtility]::ParseQueryString($uri.Query)
