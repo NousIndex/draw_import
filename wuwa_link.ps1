@@ -26,6 +26,8 @@ if ($urlMatch) {
     # Output the URL
 } else {
     Write-Output "No URL matching the specified pattern found in the log file."
+    Write-Host "Please open the Convene history in Wuthering Waves and try again!" -ForegroundColor Red
+    exit
 }
 
 Remove-Item $tmpfile
