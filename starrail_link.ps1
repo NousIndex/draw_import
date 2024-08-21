@@ -4,7 +4,7 @@ $logLocation = "%userprofile%\AppData\LocalLow\Cognosphere\Star Rail\Player.log"
 $logLocationChina = "%userprofile%\AppData\LocalLow\miHoYo\$([char]0x5d29)$([char]0x574f)$([char]0xff1a)$([char]0x661f)$([char]0x7a79)$([char]0x94c1)$([char]0x9053)\output_log.txt";
 
 $reg = $args[0]
-$apiHost = "api-os-takumi.mihoyo.com" 
+$apiHost = "public-operation-hkrpg-sg.hoyoverse.com" 
 if ($reg -eq "china") {
   Write-Host "Using China cache location"
   $logLocation = $logLocationChina
