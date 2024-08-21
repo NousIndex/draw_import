@@ -4,7 +4,7 @@ $logLocation = "%userprofile%\AppData\LocalLow\miHoYo\Genshin Impact\output_log.
 $logLocationChina = "%userprofile%\AppData\LocalLow\miHoYo\$([char]0x539f)$([char]0x795e)\output_log.txt";
 
 $reg = $args[0]
-$apiHost = "sg-hk4e-api.hoyoverse.com" 
+$apiHost = "public-operation-hk4e-sg.hoyoverse.com" 
 if ($reg -eq "china") {
   Write-Host "Using China cache location"
   $logLocation = $logLocationChina
