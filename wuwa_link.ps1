@@ -41,7 +41,7 @@ $tmpfile = "$env:TEMP/ch_data_2"
 Copy-Item $logFileLocation -Destination $tmpfile
 
 # Regular expression pattern to match URLs starting with the specified prefix
-$urlPattern = "https://aki-gm-resources-oversea.aki-game.net/aki/gacha/index.html#/record?svr_id=\S+"
+$urlPattern = "https://aki-gm-resources-oversea.aki-game.net/aki/gacha/index.html#/record?svr_id="
 
 # Search for the URL pattern in the log file
 $urlMatch = Select-String -Path $tmpfile -Pattern $urlPattern -List
