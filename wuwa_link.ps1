@@ -1,6 +1,6 @@
 Add-Type -AssemblyName System.Web
 
-# Target folder name
+# Target folder name `
 $gameFolder = "Wuthering Waves"
 
 # Default install location
