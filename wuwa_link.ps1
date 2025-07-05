@@ -8,7 +8,7 @@ $defaultPath = "C:\Program Files\$gameFolder"
 
 # Check default path first
 if (Test-Path $defaultPath) {
-    $path = $defaultPath
+    $gamePath = $defaultPath
 } else {
     Write-Output "Default path not found. Searching other drives..."
 
@@ -23,7 +23,7 @@ if (Test-Path $defaultPath) {
                 Select-Object -First 1
 
             if ($foundPath) {
-                $path = $($foundPath.FullName)
+                $gamePath = $($foundPath.FullName)
                 break
             }
         } catch {
@@ -35,12 +35,6 @@ if (Test-Path $defaultPath) {
         Write-Output "Wuthering Waves not found on any drive."
     }
 }
-
-# Read the content of the JSON file
-$jsonContent = Get-Content $path | ConvertFrom-Json
-
-# Get the path from the JSON content
-$gamePath = $jsonContent.path
 
 $logFileLocation = "$gamePath\Wuthering Waves Game\Client\Saved\Logs\Client.log"
 $tmpfile = "$env:TEMP/ch_data_2"
